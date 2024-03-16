@@ -1,4 +1,4 @@
-apiversion: argoproj.io/v1alpha1
+apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: nginx
@@ -9,14 +9,14 @@ spec:
     repoURL: https://github.com/vinayakchamle/argocd-global-training.git
     targetRevision: HEAD
     path: training
- destination:
+  destination:
    server: https://kubernetes.default.svc
    namespace: argocd
 
-syncPolicy:
-  SyncOptions:
-  - CreateNamespace=true
+  syncPolicy:
+    #SyncOptions:
+    #- CreateNamespace=true
  
-  automated:
-    selfHeal: true
-    prune: true
+    automated:
+      selfHeal: true
+      prune: true
