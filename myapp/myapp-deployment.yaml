@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: myapp-redis
   namespace: argocd
 spec:
   selector:
     matchLabels:
-      app: myapp
+      app: myapp-redis
   replicas: 2
   template:
     metadata:
       labels:
-        app: myapp
+        app: myapp-redis
     spec:
       containers:
-      - name: myapp
-        image: nanajanashia/argocd-app:1.2
+      - name: myapp-redis
+        image: vinayakchamle/redis-image:latest
         ports:
-        - containerPort: 8081
+        - containerPort: 6379
